@@ -21,3 +21,9 @@ yarn-error.log*
 
 # Sensitive files
 serviceAccountKey.json
+
+.env
+firebase.json
+.firebaserc
+functions/.env
+functions/serviceAccountKey.json
