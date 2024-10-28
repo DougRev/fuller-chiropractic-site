@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Allow public read access to all files in the 'images' folder
+    match /images/{allPaths=**} {
+      allow read: if true;
+    }
+
+    // Allow unauthenticated users to upload files to the 'documents' folder
+    match /documents/{documentId} {
+      // Allow only uploads (write access) for unauthenticated users
+      allow write: if request.resource != null;
+
+      // Prevent general public read access to all documents
+      allow read: if false;
+    }
+
+    // Allow unauthenticated users to download a specific file
+    match /documents/confidential-health-record-email-new-june30.pdf {
+      allow read: if true; // Allow public read access to this specific file
+    }
+
+    // Deny all other access outside the defined paths
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

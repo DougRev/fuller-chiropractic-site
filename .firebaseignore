@@ -1,0 +1,10 @@
+# Ignore Firebase debug files
+firebase-debug.log
+.firebase
+
+# Ignore node_modules except in functions directory
+**/node_modules/**
+
+# Do not ignore the build directory
+!/build
+!/build/**
