@@ -1,6 +1,6 @@
 const { google } = require('googleapis');
 const nodemailer = require('nodemailer');
-const functions = require('firebase-functions/v1'); // Or '/v1' depending on your installed version
+const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
 // Initialize Firebase Admin SDK
